@@ -5,6 +5,7 @@ A web application for playing Sudoku
 This app was designed to be run from a node server, but if you don't have node installed there is a way to run it without using node as well.
 
 If you have node, then all you need to do is run server.js from the top level directory.
+
 ```C:\...path-to-folder...\Sudoku> node server```
 
 If you do not want to use node, then you will have to edit the `puzzles.json` and `index.html` files. 
