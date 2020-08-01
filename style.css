@@ -1,0 +1,76 @@
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    width: 32.5%;
+    height: 32.5%;
+    background: #D5D0BE;
+    font-size:34px;
+    color: slateblue;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.box[contentEditable=true] {
+    color: slateblue;
+}
+input:disabled {
+    color: black;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.box[error=true] {
+    background: #FFCCCC;
+    border: solid #FF7777 2px;
+}
+
+.grid {
+    width: 95vmin;
+    height: 95vmin;
+    display: flex;
+    flex-wrap: wrap;
+    background: black;
+    justify-content: space-between;
+    align-items: center;
+    border: solid black 5px;
+}
+.grid[validated=true] {
+    border-color: #88FF88;
+}
+
+.square {
+    width: 33%;
+    height: 33%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: black;
+}
+
+#check-button {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    font-size: 18px;
+    padding: 10px;
+}

@@ -1,0 +1,27 @@
+[
+    {
+        "data": "435269781\n682571493\n197834562\n826195347\n374682915\n951743628\n519326874\n248957136\n111111111",
+        "expected": false,
+        "message": "Each row needs to have values 1-9"
+    },
+    {
+        "data": "123456789\n123456789\n123456789\n123456789\n123456789\n123456789\n123456789\n123456789\n123456789",
+        "expected": false,
+        "message": "Each column needs to have values 1-9"
+    },
+    {
+        "data": "123456789\n234567891\n345678912\n456789123\n567891234\n678912345\n789123456\n891234567\n912345678",
+        "expected": false,
+        "message": "Each square needs to have values 1-9"
+    },
+    {
+        "data": "   26 7 168  7  9 19   45  82 1   4   46 29   5   3 28  93   74 4  5  367 3 18   ",
+        "expected": false,
+        "message": "Each input needs to have a number"
+    },
+    {
+        "data": "653794821278165349194832765819653472365247918427981536981376254746528193532419687",
+        "expected": true,
+        "message": ""
+    }
+]
