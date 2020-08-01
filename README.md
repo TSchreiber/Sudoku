@@ -1,5 +1,7 @@
 # Sudoku
 A web application for playing Sudoku
+![alt text](https://github.com/TSchreiber/Sudoku/blob/master/sudoku.png?raw=true)
+
 ## Installation
 This app was designed to be run from a node server, but if you don't have node installed there is a way to run it without using node as well.
 
