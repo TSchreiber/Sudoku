@@ -144,3 +144,35 @@ function validate() {
     // If no errors are thrown up to this point, then it's good to go!
     return true; // Grid is valid.
 }
+
+function loadPuzzle(puzzleId) {
+    require("puzzles.json").then((res) => {
+        let data = JSON.parse(res)[puzzleId].replace(/\s/g,"").split("");
+        let i=0; 
+        for (let r=0; r<9; r++) {
+            for (let c=0; c<9; c++) {
+                if (data[i] !== ".") {
+                    setBox(r, c, data[i]);
+                }
+                i++;
+            }
+        }
+    });
+}
+
+function check_button_on_click() {
+    // remove any existing errors
+    for (let r = 0; r < 9; r++)
+        for (let c = 0; c < 9; c++)
+            document.getElementById(`${r}${c}`).setAttribute("error", false);
+    let res = validate();
+    if (res !== true) {
+        res.squares.forEach((id) =>
+            document.getElementById(id).setAttribute("error", true)
+        );
+        document.getElementsByClassName("grid")[0].setAttribute("validated", false);
+    }
+    else {
+        document.getElementsByClassName("grid")[0].setAttribute("validated", true);
+    }
+}
