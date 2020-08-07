@@ -145,6 +145,10 @@ function validate() {
     return true; // Grid is valid.
 }
 
+/**
+ * 
+ * @param {int} puzzleId The id of the puzzle to open. This is the id found in puzzles.json
+ */
 function loadPuzzle(puzzleId) {
     require("puzzles.json").then((res) => {
         let data = JSON.parse(res)[puzzleId].replace(/\s/g,"").split("");
