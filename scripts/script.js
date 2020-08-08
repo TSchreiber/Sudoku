@@ -56,24 +56,6 @@ function getBox(r, c) {
     return document.getElementById(r+""+c).value;
 }
 
-async function test() {
-    let res = JSON.parse(await require("test-grids.json"));
-    var output = "";
-    res.forEach((test_data) => {
-        let data = test_data.data.replace(/\n/g, "");
-        for (let r=0; r<9; r++) {
-            for (let c=0; c<9; c++) {
-                let v = data.charAt(r*9 + c);
-                if (v.trim() !== "") {
-                    setBox(r,c,v);
-                }
-            }
-        }
-        output += (((validate() === true) === test_data.expected)? "\u2705" : "\u274C") + " " + test_data.message + "\n";
-    });
-    return output;
-}
-
 /**
  * Checks the grid for a valid solution.
  * Returns either true or an object with the coordinates that are causing issues and a message describing the issue.
@@ -146,21 +128,29 @@ function validate() {
 }
 
 /**
+ * Fills the grid with using the given string representation of a puzzle.
+ * @param {string} puzzleString The string representation of the puzzle. All characters that are not a number or period will be removed
+ */
+function fillGrid(puzzleString) {
+    let data = puzzleString.replace(/[^\d\.]/g, "").split("");
+    let i=0; 
+    for (let r=0; r<9; r++) {
+        for (let c=0; c<9; c++) {
+            if (data[i] !== ".") {
+                setBox(r, c, data[i]);
+            }
+            i++;
+        }
+    }
+}
+
+/**
  * 
  * @param {int} puzzleId The id of the puzzle to open. This is the id found in puzzles.json
  */
 function loadPuzzle(puzzleId) {
     require("puzzles.json").then((res) => {
-        let data = JSON.parse(res)[puzzleId].replace(/\s/g,"").split("");
-        let i=0; 
-        for (let r=0; r<9; r++) {
-            for (let c=0; c<9; c++) {
-                if (data[i] !== ".") {
-                    setBox(r, c, data[i]);
-                }
-                i++;
-            }
-        }
+        fillGrid(JSON.parse(res)[puzzleId]);
     });
 }
 
