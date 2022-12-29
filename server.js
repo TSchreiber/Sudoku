@@ -1,3 +1,13 @@
+/*
+const express = require("express");
+const app = express();
+
+// Get port from environment 
+const port = process.env.PORT || '8080';
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+});
+*/
 const fs = require("fs");
 const http = require("http");
 
